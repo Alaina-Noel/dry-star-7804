@@ -38,7 +38,8 @@ RSpec.describe Hospital do
       expect(@grey_hospital.doctors_orderby_patient_count).to eq([@meredith, @alex, @miranda, @ryan])
       expect(@grey_hospital.doctors_orderby_patient_count.first.patient_count).to eq(4)
       expect(@grey_hospital.doctors_orderby_patient_count.last.patient_count).to eq(0)
-
+      expect(@seaside_hospital.doctors_orderby_patient_count.first.patient_count).to eq(0)
+      expect(@seaside_hospital.doctors_orderby_patient_count).to eq([@derek])
      end
     end
   end
