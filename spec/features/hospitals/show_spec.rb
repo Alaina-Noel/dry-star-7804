@@ -52,8 +52,6 @@ RSpec.describe 'Hospital Show Page', type: :feature do
         expect(page).to have_content("#{@alex.name}: #{@alex.patient_count} patients")
         expect(page).to have_content("#{@miranda.name}: #{@miranda.patient_count} patients")
         # expect(page).to have_content("#{@ryan.name}: #{@ryan.patient_count} patients") #edge case accounting for zero
-
-
       end
 
     end

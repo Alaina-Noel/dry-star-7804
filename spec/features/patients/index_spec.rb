@@ -41,8 +41,6 @@ RSpec.describe 'patient index page', type: :feature do
         expect("#{@denny.name}").to appear_before("#{@katie.name}")
         expect("#{@katie.name}").to appear_before("#{@rebecca.name}")
       end
-
-
     end
   end
 end
