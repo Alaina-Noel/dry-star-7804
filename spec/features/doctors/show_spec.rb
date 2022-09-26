@@ -33,7 +33,8 @@ RSpec.describe 'doctors show page', type: :feature do
 
       it 'I see all of that doctors name, specialty, university where they got their doctorate' do
 
-        visit doctors_path(@miranda)
+        visit doctor_path(@meredith)
+
         expect(page).to have_content('Meredith Grey')
         expect(page).to have_content('General Surgery')
         expect(page).to have_content('Harvard University')
@@ -43,16 +44,19 @@ RSpec.describe 'doctors show page', type: :feature do
       end
 
       it 'And I see the name of the hospital where this doctor works & the names of all of the patients this doctor has' do
-        visit doctors_path(@miranda)
+       
+        visit doctor_path(@meredith)
+       
         expect(page).to have_content('Grey Sloan Memorial Hospital')
         expect(page).to_not have_content('Seaside Health & Wellness Center')
-        expect(page).to have_content("#{@katie.name}")
-        expect(page).to have_content("#{@denny.name}")
-        expect(page).to have_content("#{@rebecca.name}")
-        expect(page).to have_content("#{@zola.name}")
-        expect(page).to_not have_content("#{@alaina.name}")
+        within('#patients_list') do 
+          expect(page).to have_content("#{@katie.name}")
+          expect(page).to have_content("#{@denny.name}")
+          expect(page).to have_content("#{@rebecca.name}")
+          expect(page).to have_content("#{@zola.name}")
+          expect(page).to_not have_content("#{@alaina.name}")
+        end
       end
-
     end
   end
 end
