@@ -35,7 +35,7 @@ RSpec.describe Hospital do
   describe 'instance methods' do
     describe '#doctors_orderby_patient_count' do
      it 'can order its doctors by the number of patients they have greatest to least' do
-      expect(@grey_hospital.doctors_orderby_patient_count).to eq([@meredith, @alex, @miranda, @ryan])
+      expect(@grey_hospital.doctors_orderby_patient_count).to eq([@meredith, @alex, @miranda])
      end
     end
   end
