@@ -2,5 +2,6 @@
 <h3> All Doctor's For: <%= @hospital.name %><h3>
 <ol>
   <% @hospital.doctors_orderby_patient_count.each do |doctor| %>
-  <li> <% "#{doctor.name}: #{doctor.patient_count} patients" %> </li>
+  <li> <%= "#{doctor.name}: #{doctor.patient_count} patients"  %> </li>
+  <% end %>
 </ol>
