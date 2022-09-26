@@ -1,6 +1,6 @@
 <h1>Adult Patients Index Page in Alphabetical Order</h1>
 <ol>
-<% @patients.list_adults_alpha_ordered.each do |patient| %>
-  <li> <%= patient.name %> </li>
-<% end %>
+  <% @patients.list_adults_alpha_ordered.each do |patient| %>
+    <li> <%= patient.name %> </li>
+  <% end %>
 </ol>

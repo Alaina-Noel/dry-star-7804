@@ -41,6 +41,16 @@ RSpec.describe 'doctors show page', type: :feature do
         expect(page).to_not have_content('Alex Karev')
         expect(page).to_not have_content('Pediatric Surgery')
         expect(page).to_not have_content('University of Pennsylvania')
+
+
+        visit doctor_path(@alex)
+
+        expect(page).to_not have_content('Meredith Grey')
+        expect(page).to_not have_content('General Surgery')
+        expect(page).to_not have_content('Harvard University')
+        expect(page).to have_content('Alex Karev')
+        expect(page).to have_content('Pediatric Surgery')
+        expect(page).to have_content("Johns Hopkins University")
       end
 
       it 'And I see the name of the hospital where this doctor works & the names of all of the patients this doctor has' do
@@ -58,7 +68,7 @@ RSpec.describe 'doctors show page', type: :feature do
         end
       end
 
-      it "Next to each patients name, I see a button to remove that patient from that doctors caseload, When I click that button for one patient I'm brought back to the Doctor's show page And I no longer see that patient's name listed" do
+      it "Next to each patients name, I see a button to remove that patient from that doctors caseload. When I click that button for one patient I'm brought back to the Doctor's show page & that patient is removed" do
        
         visit doctor_path(@meredith)
         expect(page).to have_content("#{@katie.name}")

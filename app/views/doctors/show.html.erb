@@ -5,11 +5,11 @@
   <p> University: <%= @doctor.university %> </p>
   <p> Hospital: <%= @doctor.hospital.name %> </p>
 
-  <h3> <div id="patients_list"> Doctor's Patients </h3>
-    <% @doctor.patients.each do |patient| %>
-      <div id="patient_<%=patient.id %>">
-      <%= patient.name %> <%= button_to "Remove From Caseload", doctor_patient_path(@doctor, patient) ,method: :delete %>
-      </div>
-    <% end %>
-  </div>
+<h3> <div id="patients_list"> Doctor's Patients </h3>
+  <% @doctor.patients.each do |patient| %>
+    <div id="patient_<%=patient.id %>">
+    <%= patient.name %> <%= button_to "Remove From Caseload", doctor_patient_path(@doctor, patient) ,method: :delete %>
+    </div>
+  <% end %>
+</div>
 
