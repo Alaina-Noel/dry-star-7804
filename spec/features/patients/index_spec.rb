@@ -34,7 +34,7 @@ RSpec.describe 'patient index page', type: :feature do
       it 'I see the names of all adult patients (age > 18) in ascending alphabetical order' do
         # (A - Z, you do not need to account for capitalization)
         visit patients_path
-        
+
         expect(page).to_not have_content("#{@zola.name}")
         expect(page).to_not have_content("#{@alaina.name}") #edge case being 18 exactly
 
