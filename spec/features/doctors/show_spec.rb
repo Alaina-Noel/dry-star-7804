@@ -61,7 +61,8 @@ RSpec.describe 'doctors show page', type: :feature do
       it "Next to each patients name, I see a button to remove that patient from that doctors caseload, When I click that button for one patient I'm brought back to the Doctor's show page And I no longer see that patient's name listed" do
        
         visit doctor_path(@meredith)
-        
+        expect(page).to have_content("#{@katie.name}")
+
         within("#patient_#{@katie.id}") do 
           expect(page).to have_content("#{@katie.name}")
           expect(page).to have_button("Remove From Caseload")
@@ -71,9 +72,6 @@ RSpec.describe 'doctors show page', type: :feature do
         expect(current_path).to eq(doctor_path(@meredith))
         expect(page).to_not have_content("#{@katie.name}")
         expect(page).to have_content("#{@denny.name}")
-
-        #<div id='order_<%=order.id %>'> #change to doublequotes
-        #end the div before the iteration ends
       end
 
 

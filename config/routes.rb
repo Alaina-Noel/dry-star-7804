@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :doctors, only: [:show]
-  # resources :plant_plots, only: [:destroy]
+  resources :doctor_patients, only: [:destroy]
   # resources :gardens, only: [:show]
 end
