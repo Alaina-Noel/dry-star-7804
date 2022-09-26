@@ -1,0 +1,4 @@
+<h1>Patients Index Page</h1>
+<% @patients.list_adults_alpha_ordered.each do |patient| %>
+  <%= patient.name %>
+<% end %>
