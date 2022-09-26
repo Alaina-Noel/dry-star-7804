@@ -39,7 +39,7 @@ RSpec.describe 'Hospital Show Page', type: :feature do
         expect(page).to have_content("#{@grey_hospital.name}")
         expect("#{@meredith.name}").to appear_before("#{@alex.name}")
         expect("#{@alex.name}").to appear_before("#{@miranda.name}")
-        # expect("#{@miranda.name}").to appear_before("#{@ryan.name}")
+        expect("#{@miranda.name}").to appear_before("#{@ryan.name}")
 
         expect(page).to_not have_content("#{@derek.name}")
 
@@ -48,10 +48,10 @@ RSpec.describe 'Hospital Show Page', type: :feature do
       it 'Next to each doctor I see the number of patients associated with the doctor' do
         visit hospital_path(@grey_hospital)
 
-        expect(page).to have_content("#{@meredith.name}: #{@meredith.patient_count} patients")
-        expect(page).to have_content("#{@alex.name}: #{@alex.patient_count} patients")
-        expect(page).to have_content("#{@miranda.name}: #{@miranda.patient_count} patients")
-        # expect(page).to have_content("#{@ryan.name}: #{@ryan.patient_count} patients") #edge case accounting for zero
+        expect(page).to have_content("#{@meredith.name}: 4 patients")
+        expect(page).to have_content("#{@alex.name}: 3 patients")
+        expect(page).to have_content("#{@miranda.name}: 2 patients")
+        expect(page).to have_content("#{@ryan.name}: 0 patients") #edge case accounting for zero
       end
 
     end
